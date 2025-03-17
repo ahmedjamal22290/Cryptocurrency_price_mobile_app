@@ -24,17 +24,20 @@ class CurrencyItem extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.only(left: 4.0),
-            child: Text(
-              crypto.name,
-              style: const TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-                fontSize: 18,
+            child: SizedBox(
+              width: (MediaQuery.of(context).size.width - 27) / 3.5,
+              child: Text(
+                crypto.name,
+                style: const TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                ),
               ),
             ),
           ),
           SizedBox(
-            width: (MediaQuery.of(context).size.width - 27) / 3,
+            width: (MediaQuery.of(context).size.width - 27) / 5,
             child: Center(
               child: Text(
                 crypto.symbol,
