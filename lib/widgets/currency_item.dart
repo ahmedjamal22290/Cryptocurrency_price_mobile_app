@@ -1,10 +1,9 @@
+import 'package:cryptocurrency_app/models/crypto_model.dart';
 import 'package:flutter/material.dart';
 
 class CurrencyItem extends StatelessWidget {
-  const CurrencyItem({
-    super.key,
-  });
-
+  const CurrencyItem({super.key, required this.crypto});
+  final CryptoModel crypto;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -20,14 +19,14 @@ class CurrencyItem extends StatelessWidget {
       child: Row(
         children: [
           Image.network(
-            'https://coin-images.coingecko.com/coins/images/1/large/bitcoin.png?1696501400',
+            crypto.imageUrl,
             scale: 9.5,
           ),
           Padding(
             padding: const EdgeInsets.only(left: 4.0),
             child: Text(
-              'Bitcoin',
-              style: TextStyle(
+              crypto.name,
+              style: const TextStyle(
                 color: Colors.black,
                 fontWeight: FontWeight.bold,
                 fontSize: 18,
@@ -38,8 +37,8 @@ class CurrencyItem extends StatelessWidget {
             width: (MediaQuery.of(context).size.width - 27) / 3,
             child: Center(
               child: Text(
-                'BTC',
-                style: TextStyle(
+                crypto.symbol,
+                style: const TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.bold,
                   fontSize: 18,
@@ -51,8 +50,8 @@ class CurrencyItem extends StatelessWidget {
             width: (MediaQuery.of(context).size.width - 27) / 3,
             child: Center(
               child: Text(
-                r'12355421$',
-                style: TextStyle(
+                '${crypto.price}' r'$',
+                style: const TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.bold,
                   fontSize: 18,

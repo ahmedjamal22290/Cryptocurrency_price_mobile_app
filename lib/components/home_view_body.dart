@@ -50,14 +50,11 @@ class HomeViewBody extends StatelessWidget {
                   height: MediaQuery.of(context).size.height / 50,
                 ),
                 Expanded(
-                  child: ListView(
-                    children: [
-                      CurrencyItem(),
-                      CurrencyItem(),
-                      CurrencyItem(),
-                      CurrencyItem(),
-                    ],
-                  ),
+                  child: ListView.builder(
+                      itemCount: state.items.length,
+                      itemBuilder: (context, index) {
+                        return CurrencyItem(crypto: state.items[index]);
+                      }),
                 )
               ],
             ),
