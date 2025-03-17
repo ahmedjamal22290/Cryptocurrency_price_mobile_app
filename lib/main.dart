@@ -1,3 +1,4 @@
+import 'package:cryptocurrency_app/service/coins-service.dart';
 import 'package:cryptocurrency_app/views/home_view.dart';
 import 'package:flutter/material.dart';
 
