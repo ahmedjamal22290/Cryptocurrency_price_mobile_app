@@ -1,6 +1,8 @@
-import 'package:cryptocurrency_app/service/coins-service.dart';
+import 'package:cryptocurrency_app/cubit/get_coins_cubit/get_coins_cubit.dart';
+import 'package:cryptocurrency_app/service/coins_service.dart';
 import 'package:cryptocurrency_app/views/home_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
   runApp(const Crypto());
@@ -11,9 +13,12 @@ class Crypto extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: HomeView(),
+    return BlocProvider(
+      create: (context) => GetCoinsCubit(),
+      child: const MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: HomeView(),
+      ),
     );
   }
 }
