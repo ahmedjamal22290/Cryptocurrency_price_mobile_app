@@ -7,8 +7,22 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class GetCoinsCubit extends Cubit<GetCoinsCubitState> {
   GetCoinsCubit() : super(GetCoinsCubitInitial());
-  getCioins() async {
-    List<CryptoModel> items = await CoinsService().getCoins();
+  List<CryptoModel> items = [];
+  getCoins() async {
+    items = await CoinsService().getCoins();
+    emit(GetCoinsDoneSuccessfuly(items));
+  }
+
+  sortCoins(bool isDwon) {
+    if (isDwon) {
+      items.sort((CryptoModel c1, CryptoModel c2) {
+        return c2.price.compareTo(c1.price);
+      });
+    } else {
+      items.sort((CryptoModel c1, CryptoModel c2) {
+        return c1.price.compareTo(c2.price);
+      });
+    }
     emit(GetCoinsDoneSuccessfuly(items));
   }
 }

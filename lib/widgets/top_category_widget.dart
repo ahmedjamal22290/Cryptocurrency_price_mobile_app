@@ -1,10 +1,18 @@
+import 'package:cryptocurrency_app/cubit/get_coins_cubit/get_coins_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class TopCategory extends StatelessWidget {
+class TopCategory extends StatefulWidget {
   const TopCategory({
     super.key,
   });
 
+  @override
+  State<TopCategory> createState() => _TopCategoryState();
+}
+
+class _TopCategoryState extends State<TopCategory> {
+  bool isDown = true;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -28,7 +36,11 @@ class TopCategory extends StatelessWidget {
           ),
           const Spacer(),
           GestureDetector(
-            onTap: () {},
+            onTap: () {
+              BlocProvider.of<GetCoinsCubit>(context);
+              isDown = isDown == false ? true : false;
+              setState(() {});
+            },
             child: Row(
               children: [
                 Text(
@@ -40,7 +52,7 @@ class TopCategory extends StatelessWidget {
                 ),
                 Icon(
                   size: 18,
-                  Icons.arrow_downward,
+                  isDown ? Icons.arrow_downward : Icons.arrow_upward,
                 )
               ],
             ),
