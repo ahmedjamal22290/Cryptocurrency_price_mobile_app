@@ -1,5 +1,4 @@
 import 'package:cryptocurrency_app/cubit/get_coins_cubit/get_coins_cubit.dart';
-import 'package:cryptocurrency_app/service/coins_service.dart';
 import 'package:cryptocurrency_app/views/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

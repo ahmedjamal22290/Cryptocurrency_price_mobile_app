@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:cryptocurrency_app/components/home_view_body.dart';
 import 'package:cryptocurrency_app/cubit/get_coins_cubit/get_coins_cubit.dart';
 import 'package:flutter/material.dart';
@@ -11,10 +13,24 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
+  bool changeColor = false;
+  late Timer _timer;
   @override
   void initState() {
     BlocProvider.of<GetCoinsCubit>(context).getCoins();
+
+    _timer = Timer.periodic(const Duration(seconds: 2), (timer) {
+      setState(() {
+        changeColor = !changeColor;
+      });
+    });
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    _timer.cancel();
+    super.dispose();
   }
 
   @override
@@ -24,11 +40,19 @@ class _HomeViewState extends State<HomeView> {
         centerTitle: true,
         elevation: 0,
         backgroundColor: Colors.white,
-        title: const Text(
-          "Cryptocurrencies ",
+        title: AnimatedDefaultTextStyle(
+          curve: Curves.easeInBack,
+          duration: const Duration(milliseconds: 850),
           style: TextStyle(
-            color: Color(0xff39393a),
-            fontWeight: FontWeight.bold,
+            color:
+                changeColor ? Colors.deepOrange[800] : const Color(0xff39393a),
+          ),
+          child: const Text(
+            "Cryptocurrencies ",
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 23,
+            ),
           ),
         ),
       ),

@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:cryptocurrency_app/cubit/get_coins_cubit/get_coins_cubit_states.dart';
 import 'package:cryptocurrency_app/models/crypto_model.dart';
 import 'package:cryptocurrency_app/service/coins_service.dart';
