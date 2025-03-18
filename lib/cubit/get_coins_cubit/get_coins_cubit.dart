@@ -14,7 +14,7 @@ class GetCoinsCubit extends Cubit<GetCoinsCubitState> {
   }
 
   sortCoins(bool isDwon) {
-    if (isDwon) {
+    if (!isDwon) {
       items.sort((CryptoModel c1, CryptoModel c2) {
         return c2.price.compareTo(c1.price);
       });

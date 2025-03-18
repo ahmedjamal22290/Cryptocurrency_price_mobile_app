@@ -37,7 +37,7 @@ class _TopCategoryState extends State<TopCategory> {
           const Spacer(),
           GestureDetector(
             onTap: () {
-              BlocProvider.of<GetCoinsCubit>(context);
+              BlocProvider.of<GetCoinsCubit>(context).sortCoins(isDown);
               isDown = isDown == false ? true : false;
               setState(() {});
             },
