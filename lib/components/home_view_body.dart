@@ -1,6 +1,7 @@
 import 'package:cryptocurrency_app/cubit/get_coins_cubit/get_coins_cubit.dart';
 import 'package:cryptocurrency_app/cubit/get_coins_cubit/get_coins_cubit_states.dart';
 import 'package:cryptocurrency_app/widgets/currency_item.dart';
+import 'package:cryptocurrency_app/widgets/top_category_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -16,36 +17,7 @@ class HomeViewBody extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20.0),
             child: Column(
               children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                  child: Row(
-                    children: [
-                      Text(
-                        'Name',
-                        style: TextStyle(
-                          fontSize: 12,
-                          color: Colors.grey[700],
-                        ),
-                      ),
-                      const Spacer(),
-                      Text(
-                        'Symbol',
-                        style: TextStyle(
-                          fontSize: 12,
-                          color: Colors.grey[700],
-                        ),
-                      ),
-                      const Spacer(),
-                      Text(
-                        'Price(USD)',
-                        style: TextStyle(
-                          fontSize: 12,
-                          color: Colors.grey[700],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+                const TopCategory(),
                 SizedBox(
                   height: MediaQuery.of(context).size.height / 50,
                 ),
@@ -60,7 +32,7 @@ class HomeViewBody extends StatelessWidget {
             ),
           );
         } else {
-          return Center(
+          return const Center(
               child: CircularProgressIndicator(
             strokeWidth: 5,
             semanticsLabel: "Loading",
