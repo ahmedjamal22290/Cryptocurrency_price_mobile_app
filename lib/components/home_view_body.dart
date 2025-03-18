@@ -60,7 +60,11 @@ class HomeViewBody extends StatelessWidget {
             ),
           );
         } else {
-          return Container();
+          return Center(
+              child: CircularProgressIndicator(
+            strokeWidth: 5,
+            semanticsLabel: "Loading",
+          ));
         }
       },
     );

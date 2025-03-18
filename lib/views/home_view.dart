@@ -22,6 +22,8 @@ class _HomeViewState extends State<HomeView> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
+        elevation: 0,
+        backgroundColor: Colors.white,
         title: const Text(
           "Cryptocurrencies ",
           style: TextStyle(
